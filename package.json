@@ -1,10 +1,9 @@
 {
-  "name": "international-sim-backend",
+  "name": "international-sim-sales-dashboard",
   "version": "1.0.0",
-  "description": "Backend API for International SIM Sales Dashboard",
-  "main": "server.js",
+  "description": "International SIM Sales Dashboard",
   "scripts": {
-    "start": "node server.js"
+    "dev": "node server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
