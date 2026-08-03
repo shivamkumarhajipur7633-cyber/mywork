@@ -1,11 +1,23 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 
+// Serve static frontend files (index.html, style.css, script_supabase.js, etc.)
+app.use(express.static(path.join(__dirname)));
+
+// API health check
+app.get("/api/status", function (req, res) {
+  res.json({
+    message: "International SIM Sales Backend is running"
+  });
+});
+
+// Sales API endpoint
 const salesData = {
   "2026-06-27": {
     report_date: "2026-06-27",
@@ -19,7 +31,6 @@ const salesData = {
     trend_type: "negative",
     insight: "Thailand had the highest SIM demand on this date, but activation success needs attention."
   },
-
   "2026-06-28": {
     report_date: "2026-06-28",
     total_units_sold: 1120,
@@ -32,7 +43,6 @@ const salesData = {
     trend_type: "positive",
     insight: "Singapore sales improved with better activation performance and stronger revenue."
   },
-
   "2026-06-29": {
     report_date: "2026-06-29",
     total_units_sold: 1280,
@@ -45,7 +55,6 @@ const salesData = {
     trend_type: "positive",
     insight: "UAE is leading sales for the selected report date. Activation performance is healthy."
   },
-
   "2026-06-30": {
     report_date: "2026-06-30",
     total_units_sold: 1400,
@@ -59,12 +68,6 @@ const salesData = {
     insight: "Saudi Arabia showed strong growth with the highest revenue and healthy activation performance."
   }
 };
-
-app.get("/", function (req, res) {
-  res.json({
-    message: "International SIM Sales Backend is running"
-  });
-});
 
 app.get("/api/sales", function (req, res) {
   const reportDate = req.query.report_date;
@@ -94,6 +97,13 @@ app.get("/api/sales", function (req, res) {
   res.json(data);
 });
 
-app.listen(PORT, function () {
-  console.log("Server running on http://localhost:" + PORT);
+// Serve index.html on root and all unknown routes
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "index.html"));
 });
+
+app.listen(PORT, function () {
+  console.log("Server running on port " + PORT);
+});
+
+module.exports = app;
