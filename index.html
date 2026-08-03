@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Dashboard</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1><u>Dashboard</u></h1>
+
+    <!-- Filter -->
+    <div class="filter-section">
+        <label for="currentdate" class="filter">Filter :</label>
+        <input
+            type="date"
+            id="currentdate"
+            class="current_date"
+            onchange="loadDashboard()"
+        >
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="kpi_card" id="today_performance">
+        <p>TODAY PERFORMANCE</p>
+
+        <span id="today_orders" class="today_orders">0</span>
+        <span> Orders</span><br><br>
+
+        <span id="today_revenue">₹0</span>
+        <span> Revenue</span>
+    </div>
+
+    <div class="kpi_card">
+        <p>CURRENT MONTH</p>
+
+        <span id="monthly_orders" class="monthly_orders">0</span>
+        <span> Orders</span><br><br>
+
+        <span id="monthly_revenue">₹0</span>
+        <span> Revenue</span>
+    </div>
+
+    <div class="kpi_card">
+        <p>PREVIOUS MONTH (SAME DAY)</p>
+
+        <span id="previous_month_same_day_orders" class="previous_month_same_day_orders">0</span>
+        <span> Orders</span><br><br>
+
+        <span id="previous_month_same_day_revenue">₹0</span>
+        <span> Revenue</span>
+    </div>
+
+    <div class="kpi_card">
+        <p>PREVIOUS MONTH</p>
+
+        <span id="previous_month_orders" class="previous_month_orders">0</span>
+        <span> Orders</span><br><br>
+
+        <span id="previous_month_revenue">₹0</span>
+        <span> Revenue</span>
+    </div>
+
+    <!-- Employee Table -->
+    <div class="emp_data">
+
+        <h2>Daily Leaderboard</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Employee Name</th>
+                    <th>Today Sales</th>
+                    <th>Today Revenue</th>
+                    <th>Monthly Sales</th>
+                    <th>Monthly Revenue</th>
+                </tr>
+            </thead>
+
+            <tbody id="emp_data">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- Daily Graph -->
+    <div class="summary_graph">
+
+        <h2>Daily Summary Graph</h2>
+
+        <canvas id="daily_summary_graph"></canvas>
+
+    </div>
+
+    <!-- Monthly Graph -->
+    <div class="summary_graph">
+
+        <h2>Monthly Summary Graph</h2>
+
+        <canvas id="monthly_summary_graph"></canvas>
+
+    </div>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Main Script -->
+    <script src="script_supabase.js"></script>
+
+</body>
+</html>
