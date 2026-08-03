@@ -1,0 +1,169 @@
+/* ===========================
+   GENERAL
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+    margin:30px 60px;
+}
+
+h1{
+    margin-bottom:25px;
+}
+
+/* ===========================
+   FILTER
+=========================== */
+
+.filter-section{
+    margin-bottom:20px;
+}
+
+.filter{
+    font-size:20px;
+    font-weight:bold;
+    margin-right:10px;
+}
+
+.current_date{
+    padding:8px 12px;
+    border:1px solid rgb(221,102,5);
+    border-radius:6px;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.current_date:hover{
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+/* ===========================
+   KPI CARDS
+=========================== */
+
+.kpi_card{
+    display:inline-block;
+    vertical-align:top;
+    width:250px;
+    height:170px;
+    margin:15px 10px;
+    padding:20px;
+    background:#fff;
+    border-radius:10px;
+    border:1px solid #ddd;
+    transition:.3s;
+}
+
+.kpi_card:hover{
+    box-shadow:0 5px 18px rgba(0,0,0,.25);
+}
+
+#today_performance{
+    background:rgb(55,55,80);
+    color:#fff;
+}
+
+.today_orders,
+.monthly_orders,
+.previous_month_same_day_orders,
+.previous_month_orders{
+    font-size:36px;
+    font-weight:bold;
+    color:rgb(221,102,5);
+}
+
+#today_performance .today_orders{
+    color:#fff;
+}
+
+/* ===========================
+   TABLE
+=========================== */
+
+.emp_data{
+    margin-top:30px;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    border:1px solid #ddd;
+}
+
+.emp_data:hover{
+    box-shadow:0 5px 18px rgba(0,0,0,.2);
+}
+
+.emp_data h2{
+    margin-bottom:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:rgb(221,102,5);
+    color:white;
+}
+
+th,
+td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+
+/* ===========================
+   CHARTS
+=========================== */
+
+.summary_graph{
+    display:inline-block;
+    width:48%;
+    margin-top:30px;
+    padding:20px;
+    background:#fff;
+    border-radius:10px;
+    border:1px solid #ddd;
+    vertical-align:top;
+}
+
+.summary_graph:hover{
+    box-shadow:0 5px 18px rgba(0,0,0,.2);
+}
+
+.summary_graph h2{
+    margin-bottom:15px;
+}
+
+canvas{
+    width:100% !important;
+    height:300px !important;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+    .kpi_card{
+        width:100%;
+    }
+
+    .summary_graph{
+        width:100%;
+    }
+
+    body{
+        margin:20px;
+    }
+
+}
